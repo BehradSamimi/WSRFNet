@@ -88,7 +88,7 @@ class Data(Dataset):
         image = Image.open(os.path.join(self.cfg.datapath, 'image/test', name + '.jpg')).convert("RGB")
         image = np.asarray(image).astype(np.float32)
         
-        filename = os.path.join(self.cfg.datapath, 'annotations/test', name + '.png')      
+        filename = os.path.join(self.cfg.datapath, 'label/test/annotations', name + '.png')      
         file_client = mmcv.FileClient(**self.file_client_args)    
         img_bytes = file_client.get(filename)
         mask = mmcv.imfrombytes(
