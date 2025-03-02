@@ -81,11 +81,11 @@ class Data(Dataset):
         self.file_client_args ={'backend': 'disk'}
         self.imdecode_backend = 'pillow'
 
-        self.samples = os.listdir(os.path.join(cfg.datapath, 'image'))
+        self.samples = os.listdir(os.path.join(cfg.datapath, 'image/test'))
 
     def __getitem__(self, idx):
         name  = self.samples[idx][:-4]
-        image = Image.open(os.path.join(self.cfg.datapath, 'image', name + '.jpg')).convert("RGB")
+        image = Image.open(os.path.join(self.cfg.datapath, 'image/test', name + '.jpg')).convert("RGB")
         image = np.asarray(image).astype(np.float32)
         
         filename = os.path.join(self.cfg.datapath, 'annotations', name + '.png')      
